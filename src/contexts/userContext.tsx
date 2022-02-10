@@ -66,7 +66,7 @@ export function UserProvider({ children }: UserProviderProps) {
     }, [])
 
     function getUser(user: UserFunction) {
-        api.get(`${user}/repos`)
+        api.get(`${user}/repos?per_page=100`)
             .then(response => {
                 setUserRepo(response.data)
                 console.log(userRepo)

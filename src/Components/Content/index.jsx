@@ -10,7 +10,15 @@ export function Content() {
 
     const { userRepo, userProfile } = useContext(UserContext)
 
+        function sort () {
+           userRepo.sort(( x , y ) => {
+               return y.stargazers_count - x.stargazers_count
 
+                
+            })
+        } sort()
+         console.log(userRepo)
+        
     return (
         <Container>
 
@@ -43,7 +51,26 @@ export function Content() {
             <Ul>
            
                 {
-                     
+                     nav === 'popular' ?
+
+                     userRepo.map( (user, indice) => (
+                         indice <= 5 ?
+                        <div className="card-repo">
+                            
+                           <li key={user.id}>
+                               <a href={user.html_url}>{user.name} </a>
+                               <p>{user.description}</p>
+                           </li>
+
+                         <span>{user.language}</span>
+                         <span>{user.stargazers_count}</span>
+                           
+                         </div>
+                         : ''
+                       ))
+
+                       : 
+
                        userRepo.map( user => (
                         <div className="card-repo">
                             
@@ -56,8 +83,8 @@ export function Content() {
                            
                          </div>
                        ))
-           
                 }
+           
             </Ul>
         </div>
 
