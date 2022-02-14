@@ -1,12 +1,12 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
+import { RepositoryCard } from "../CardRepo";
+import { NavBar } from "../NavBar";
 import { UserProfile } from "../UserProfile";
-import { Container, NavButton, Ul } from "./style";
+import { Container, Ul } from "./style";
 
 export function Content() {
-  const [nav, setNav] = useState("popular");
-
-  const { userRepo, userProfile } = useContext(UserContext);
+  const { userRepo, nav } = useContext(UserContext);
 
   function sort() {
     userRepo.sort((x, y) => {
@@ -18,60 +18,22 @@ export function Content() {
 
   return (
     <Container>
-
-      <UserProfile/>
+      <UserProfile />
 
       <div className="repo">
-        <nav>
-          <NavButton
-            isActive={nav === "popular"}
-            onClick={() => (nav === "allRepositories" ? setNav("popular") : "")}
-          >
-            Overview
-          </NavButton>
-          <NavButton
-            isActive={nav === "allRepositories"}
-            onClick={() => (nav === "popular" ? setNav("allRepositories") : "")}
-          >
-            Repositories
-          </NavButton>
-        </nav>
+        <NavBar />
         <h2> Popular repositories </h2>
         <Ul>
-          {nav === "popular"
-            ? userRepo.map((user, indice) =>
-                indice <= 5 ? (
-                  <div className="card-repo">
-                    <li key={user.id}>
-                      <div className="flex space">
-                        <a href={user.html_url}>{user.name} </a>
-                        <p>Public</p>
-                      </div>
-                      <p>{user.description}</p>
-                    </li>
-                    <div className="flex">
-                      <span>{user.language}</span>
-                      <span>{user.stargazers_count}</span>
-                    </div>
-                  </div>
-                ) : (
-                  ""
-                )
-              )
-            : userRepo.map((user) => (
-              <div className="card-repo">
-              <li key={user.id}>
-                <div className="flex space">
-                  <a href={user.html_url}>{user.name} </a>
-                  <p>Public</p>
-                </div>
-                <p>{user.description}</p>
-              </li>
-              <div className="flex">
-                <span>{user.language}</span>
-              </div>
-            </div>
-              ))}
+          {userRepo.map((user) => (
+            <RepositoryCard
+              id={user.id}
+              name={user.name}
+              html_url={user.html_url}
+              language={user.language}
+              description={user.description}
+              stargazers_count={user.stargazers_count}
+            />
+          ))}
         </Ul>
       </div>
     </Container>
