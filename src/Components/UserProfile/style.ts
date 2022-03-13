@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
+  margin-left: 15px;
+  
   img {
     width: 296px;
     height: 296px;
@@ -11,7 +12,7 @@ export const Container = styled.div`
 
   span {
     color: var(--white);
-    font-size: 26px;
+    font-size: 1.625rem;
     display: block;
   }
   .InfoUser {
@@ -42,11 +43,28 @@ export const Container = styled.div`
 
   .login {
     color: var(--gray);
-    font-size: 20px;
+    font-size: 1.25rem;
   }
   .location {
     margin-top: 5px;
     color: var(--white);
-    font-size: 14px;
+    font-size: 1rem;
   }
+
+  @media (max-width: 1040px) {
+       img {
+        width: 148px;
+        height: 148px;
+       }
+    }
+    @media (max-width: 630px) {
+      margin: auto;
+      margin-bottom: 20px;
+      .InfoUser{
+       button {
+        width: 148px;
+       }
+      }
+    }
+}
 `;

@@ -25,6 +25,19 @@ body {
 
 button {
     cursor: pointer; 
-}
+}  
 
+html {
+    @media (max-width: 1080px){
+        font-size: 93.75%;
+    }
+
+    @media (max-width: 960px) {
+        font-size: 75%;
+    }
+
+    @media (max-width: 380px) {
+        font-size: 70%;
+    }
+}
 `;

@@ -1,51 +1,59 @@
 import styled from "styled-components";
 
-
 export const Li = styled.li`
-    width: 450px;
-    margin-left: 20px;
-    margin-top: 15px;
 
-    a {
-      color: var(--repositoriesTitle);
-      text-decoration: none;
-      font-size: 14px;
-    }
+  margin-right: 15px;
 
-    p {
-      margin-top: 5px;
-      font-size: 12px;
-      color: var(--gray);
-    }
-    `
-export const Card = styled.div`
-   border: 1px solid #30363d;
-   border-radius: 6px;
-   padding: 16px;
-   
-`
-
-export const Header = styled.header`
-   display: flex;
-
-   p {
-      border: 1px solid #30363d;
-      border-radius: 25px;
-      font-weight: bold;
-
-      
-   }
-
-`
-
-
-    
-export const Footer = styled.footer`
-  
-  
-  span {
-   font-size: 12px;
-   color: var(--gray);
+  a {
+    color: var(--repositoriesTitle);
+    text-decoration: none;
+    font-size: 0.875rem;
   }
 
-`
+  p {
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--gray);
+  }
+`;
+export const Card = styled.div`
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  max-width: 350px;
+  
+  padding: 16px;
+  min-height: 160px;
+
+  &:last-child {
+    margin-bottom: 15px;
+  }
+
+  
+  @media (max-width: 380px) {
+       width: 220px;
+    }
+`;
+
+export const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  p {
+    border: 1px solid #30363d;
+    border-radius: 25px;
+    font-weight: bold;
+    padding: 0px 7px;
+    margin: 0px;
+  }
+`;
+
+export const Footer = styled.footer`
+  display: flex;
+  margin-top: 7px;
+  justify-content: left;
+  span {
+    font-size: 12px;
+    color: var(--gray);
+  }
+
+ 
+`;

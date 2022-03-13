@@ -24,7 +24,7 @@ interface UserProvider {
   userRepo: User[];
   userProfile: {};
   nav: string;
-  handleNav:(nav: 'popular'| 'allRepositories') => void
+  handleNav:(nav: 'OverView'| 'Repositories') => void
 }
 
 interface UserProfile {
@@ -40,9 +40,8 @@ export const UserContext = createContext<UserProvider>({} as UserProvider);
 
 export function UserProvider({ children }: UserProviderProps) {
   const [userRepo, setUserRepo] = useState<User[]>([]);
-  const [nav, setNav] = useState("popular");
-
-    function handleNav(nav: 'popular'| 'allRepositories') {
+  const [nav, setNav] = useState("OverView");
+    function handleNav(nav: 'OverView'| 'Repositories') {
       setNav(nav)
     } 
 

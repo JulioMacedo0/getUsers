@@ -2,28 +2,26 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { NavButton, Navigation } from "./style";
 
-
-
-
 export function NavBar() {
+  const { handleNav, nav, userRepo } = useContext(UserContext);
 
-    const { handleNav, nav} = useContext(UserContext);
-
-    
   return (
     <Navigation>
       <NavButton
-        isActive={nav === "popular"}
-        onClick={() => (nav === "allRepositories" ? handleNav("popular") : "")}
+        isActive={nav === "OverView"}
+        onClick={() => (nav === "Repositories" ? handleNav("OverView") : "")}
       >
         Overview
       </NavButton>
       <NavButton
-        isActive={nav === "allRepositories"}
-        onClick={() => (nav === "popular" ? handleNav("allRepositories") : "")}
+        isActive={nav === "Repositories"}
+        onClick={() => (nav === "OverView" ? handleNav("Repositories") : "")}
       >
-        Repositories
+  
+          Repositories <span>{userRepo.length}</span>
+      
       </NavButton>
+      <div></div>    
     </Navigation>
   );
 }
