@@ -11,7 +11,7 @@ export function RepositoryCard(props) {
         <p>{props.description}</p>
         <Footer>
           <span>{props.language}</span>
-          <span>{props.stargazers_count}</span>
+          <span className="count">{props.stargazers_count}</span>
         </Footer>
       </Card>
     </Li>

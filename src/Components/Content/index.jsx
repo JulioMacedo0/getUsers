@@ -22,18 +22,35 @@ export function Content() {
 
       <div className="repo">
         <NavBar />
-        <h2> Popular repositories </h2>
+        {nav ==='OverView' ?  <h2> Popular repositories </h2> : null }
+        
         <Ul>
-          {userRepo.map((user) => (
-            <RepositoryCard
-              id={user.id}
-              name={user.name}
-              html_url={user.html_url}
-              language={user.language}
-              description={user.description}
-              stargazers_count={user.stargazers_count}
-            />
-          ))}
+          {userRepo.map((user, index) => {
+            if (nav === "OverView" && index <= 5) {
+              return (
+                <RepositoryCard
+                  key={user.id}
+                  id={user.id}
+                  name={user.name}
+                  html_url={user.html_url}
+                  language={user.language}
+                  description={user.description}
+                />
+              );
+            } else if (nav === "Repositories") {
+              return (
+                <RepositoryCard
+                  key={user.id}
+                  id={user.id}
+                  name={user.name}
+                  html_url={user.html_url}
+                  language={user.language}
+                  description={user.description}
+                  stargazers_count={user.stargazers_count}
+                />
+              );
+            }
+          })}
         </Ul>
       </div>
     </Container>
