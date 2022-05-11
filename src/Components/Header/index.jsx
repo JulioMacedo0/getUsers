@@ -18,15 +18,17 @@ export function Header() {
             placeholder="Pesquise um usuário"
             onChange={(event) => setNameUser(event.target.value)}
           />
+          
+         
         </form>
         <button
-          type="submit"
-          onClick={async () => {
-            await getUser(nameUser);
-          }}
-        >
-          Pesquisar
-        </button>
+            type="submit"
+            onClick={async () => {
+              await getUser(nameUser);
+            }}
+          >
+            Pesquisar
+          </button>
       </Content>
     </Container>
   );

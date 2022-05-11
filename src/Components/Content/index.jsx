@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
+import { CardList } from "../CardList";
 import { RepositoryCard } from "../CardRepo";
 import { NavBar } from "../NavBar";
 import { UserProfile } from "../UserProfile";
@@ -22,7 +23,7 @@ export function Content() {
 
       <div className="repo">
         <NavBar />
-        {nav ==='OverView' ?  <h2> Popular repositories </h2> : null }
+        {nav ==='OverView' &&  <h2> Popular repositories </h2>}
         
         <Ul>
           {userRepo.map((user, index) => {
@@ -35,19 +36,17 @@ export function Content() {
                   html_url={user.html_url}
                   language={user.language}
                   description={user.description}
+                  stargazers_count={user.stargazers_count}
                 />
               );
             } else if (nav === "Repositories") {
               return (
-                <RepositoryCard
-                  key={user.id}
-                  id={user.id}
-                  name={user.name}
-                  html_url={user.html_url}
-                  language={user.language}
-                  description={user.description}
-                  stargazers_count={user.stargazers_count}
+                <CardList
+                
+                
                 />
+
+                
               );
             }
           })}
