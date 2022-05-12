@@ -2,8 +2,10 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/userContext";
 import { Container } from "./style";
 
+
+
 export function UserProfile() {
-  const { userProfile } = useContext(UserContext);
+  const  { userProfile }   = useContext(UserContext);
 
   return (
     <Container>

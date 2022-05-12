@@ -5,29 +5,27 @@ interface UserProviderProps {
   children: ReactNode;
 }
 
-interface User {
-  id: number;
-  name: string;
-  git_url: string;
-  language: string;
-  html_url: string;
-  description: string;
+export interface User {
+  id?: number;
+  name?: string;
+  git_url?: string;
+  language?: string;
+  html_url?: string;
+  description?: string;
   stargazers_count: number;
 }
 
-interface UserFunction {
-  nameUser: string;
-}
+
 
 interface UserProvider {
-  getUser: (user: UserFunction) => void;
+  getUser: (user: string) => void;
   userRepo: User[];
-  userProfile: {};
+  userProfile: ProfileUser;
   nav: string;
   handleNav:(nav: 'OverView'| 'Repositories') => void
 }
 
-interface UserProfile {
+export interface ProfileUser {
   login: string;
   avatar_url: string;
   name: string;
@@ -45,8 +43,8 @@ export function UserProvider({ children }: UserProviderProps) {
       setNav(nav)
     } 
 
-  const [userProfile, setUserProfile] = useState<UserProfile>(
-    {} as UserProfile
+  const [userProfile, setUserProfile] = useState<ProfileUser>(
+    {} as ProfileUser
   );
 
   useEffect(() => {
@@ -59,7 +57,7 @@ export function UserProvider({ children }: UserProviderProps) {
     });
   }, []);
 
-  function getUser(user: UserFunction) {
+  function getUser(user : string) {
     api.get(`${user}/repos?per_page=100`).then((response) => {
       setUserRepo(response.data);
     });

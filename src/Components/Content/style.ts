@@ -25,12 +25,18 @@ export const Container = styled.div`
     justify-content: center;
   }
 `;
-export const Ul = styled.ul`
+
+interface UlProps {
+  Nav: boolean 
+}
+
+export const Ul = styled.ul<UlProps>`
   color: var(--repositoriesTitle);
   list-style: none;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(${(props) =>
+      props.Nav  ? "2" : "1"} , 1fr);
   grid-gap: 0px;
 
   @media (max-width: 890px) {

@@ -25,7 +25,7 @@ export function Content() {
         <NavBar />
         {nav ==='OverView' &&  <h2> Popular repositories </h2>}
         
-        <Ul>
+        <Ul Nav={nav === 'OverView'}>
           {userRepo.map((user, index) => {
             if (nav === "OverView" && index <= 5) {
               return (
@@ -36,14 +36,14 @@ export function Content() {
                   html_url={user.html_url}
                   language={user.language}
                   description={user.description}
-                  stargazers_count={user.stargazers_count}
-                />
+                  stargazers_count={user.stargazers_count}             />
               );
             } else if (nav === "Repositories") {
               return (
                 <CardList
-                
-                
+                stargazers_count={user.stargazers_count}    
+                name={user.name}
+                html_url={user.html_url}
                 />
 
                 

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Li = styled.li`
   margin-right: 15px;
-
+  display: block;
   a {
     color: var(--repositoriesTitle);
     text-decoration: none;
@@ -17,5 +17,5 @@ export const Li = styled.li`
 `;
 
 export const Card = styled.div`
-  
+  width: 895px;
 `;

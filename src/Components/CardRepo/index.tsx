@@ -1,6 +1,8 @@
 import { Li, Header, Footer, Card } from "./style";
+import {User} from '../../contexts/userContext'
 
-export function RepositoryCard(props) {
+
+export function RepositoryCard(props: User) {
   return (
     <Li>
       <Card>
