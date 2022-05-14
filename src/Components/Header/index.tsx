@@ -12,23 +12,23 @@ export function Header() {
     <Container>
       <Content>
         <img src={iconGit} alt="" />
-        <form action="" method="get">
+        <form onSubmit={async (e) => {
+          e.preventDefault();
+          await getUser(nameUser);
+        }}>
           <input
             type="text"
             placeholder="Pesquise um usuário"
             onChange={(event) => setNameUser(event.target.value)}
           />
-
+          <button
+            type="submit"
+          >
+            Pesquisar
+          </button>
 
         </form>
-        <button
-          type="submit"
-          onClick={async () => {
-            await getUser(nameUser);
-          }}
-        >
-          Pesquisar
-        </button>
+
       </Content>
     </Container>
   );
